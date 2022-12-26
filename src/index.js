@@ -43,7 +43,9 @@ function onSearchCountry(event) {
 
 function addCountryFullInfo(country) {
     clear();
-    console.log(country[0]);
+    // console.log(country[0]);
+    const languages = Object.values(country[0].languages).map(el => el.name).join(', ');
+    console.log(languages);
     const countryFullMarkup = 
         `
         <img
@@ -55,7 +57,7 @@ function addCountryFullInfo(country) {
         <h1>${country[0].name}</h1>
         <p>Capital: <span class="country-value">${country[0].capital}</span></p>
         <p>Population: <span class="country-value">${country[0].population}</span></p>
-        <p>Languages: <span class="country-value">${Object.values(country[0].languages).join(' ')}</span></p>
+        <p>Languages: <span class="country-value">${languages}</span></p>
 `;
     return refs.countryInfo.innerHTML = countryFullMarkup;
 };
